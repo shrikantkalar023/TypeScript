@@ -2,4 +2,4 @@
 
 This is the repo i created and updated while learning TS.
 
-**Shrikant Kalar**
+**-Shrikant Kalar**
