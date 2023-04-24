@@ -1,9 +1,4 @@
-let sales = 12342;
-let course = "TypeScript";
-let is_published = true;
-let level;
+let numbers: number[] = [];
+numbers[0] = 1;
 
-level = 1;
-level = "a";
-
-// any type is dangerous. Always try to use specific types.
+// numbers[1]='a' //invalid
