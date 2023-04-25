@@ -1,9 +1,14 @@
-// Tuple: fixed len array, where each ele has particular type
+// enums r list of related constants
 
-// Tuples r internally represented using plain JS arrays
+// const small=1
+// const medium=2
+// const large=3
 
-// Best Practice: use tuples only for 2 elements
-
-const user: [number, string] = [1, "Shri"];
-
-user.push(3); // this method causes issue with TS
+// PascalCase
+const enum Size { // using const produces more optimized JS code
+  Small = 1,
+  Medium,
+  Large,
+} // small by def has 0 value.
+let mySize: Size = Size.Medium;
+console.log(mySize);
