@@ -1,14 +1,6 @@
-// enums r list of related constants
+function calculateTax(income: number, taxYear = 2022): number {
+  if (taxYear < 2022) return income * 1.2;
+  return income * 1.3;
+}
 
-// const small=1
-// const medium=2
-// const large=3
-
-// PascalCase
-const enum Size { // using const produces more optimized JS code
-  Small = 1,
-  Medium,
-  Large,
-} // small by def has 0 value.
-let mySize: Size = Size.Medium;
-console.log(mySize);
+// Best Practice: properly anotate fns (parameters & retrun types) & enable 3 tsconfig settings.
