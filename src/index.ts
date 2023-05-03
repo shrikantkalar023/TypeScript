@@ -1,6 +1,14 @@
-function calculateTax(income: number, taxYear = 2022): number {
-  if (taxYear < 2022) return income * 1.2;
-  return income * 1.3;
-}
+let employee: {
+  readonly id: number;
+  name: string;
+  retire: (date: Date) => void;
+} = {
+  id: 1,
+  name: "Shrikant",
+  retire: (date: Date) => {
+    console.log(date);
+  },
+};
 
-// Best Practice: properly anotate fns (parameters & retrun types) & enable 3 tsconfig settings.
+// Make sure the code we write is conceptually correct. We shouldn't blindly use features of TS.
+// e.g. every employee should have a name.
