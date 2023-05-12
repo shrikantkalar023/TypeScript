@@ -1,16 +1,7 @@
-// Union types ... one type or other type
-// Intersection types ...one type and other type
+// Literal types : limit the values we can assign to variables
+// exact or specific value
 
-type Draggable = {
-  drag: () => void;
-};
+type Quantity = 50 | 100;
+let quantity: Quantity = 100;
 
-type Resizable = {
-  resize: () => void;
-};
-
-type UIWidget = Draggable & Resizable;
-let textBox: UIWidget = {
-  drag: () => {},
-  resize: () => {},
-};
+type Metric = "cm" | "inch";
