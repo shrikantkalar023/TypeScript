@@ -1,7 +1,7 @@
-// Literal types : limit the values we can assign to variables
-// exact or specific value
+// Null types : by default TS compiler stops us from using 'null' or 'undefined' values
 
-type Quantity = 50 | 100;
-let quantity: Quantity = 100;
+function greet(name: string | null | undefined) {
+  console.log(name?.toUpperCase());
+}
 
-type Metric = "cm" | "inch";
+greet(undefined);
