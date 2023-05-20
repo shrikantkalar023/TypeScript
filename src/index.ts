@@ -1,7 +1,9 @@
-let speed: number | null = null;
-let ride = {
-  // Falsy values (undefined, null, '', false, 0)
-  // Nullish Coaelscing Operator......the value can be (none or undefined)
+// Type Assertions: we know more about the type of obj
 
-  speed: speed ?? 30, // if speed is not none or undefined use that value otherwise use 30 as default value
-};
+// 2 syntax
+// let phone = document.getElementById('phone') as HTMLInputElement
+let phone = <HTMLInputElement>document.getElementById("phone");
+
+// HTMLElement -> HTMLInputElement
+
+phone.value;
