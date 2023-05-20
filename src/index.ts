@@ -1,7 +1,7 @@
-// Null types : by default TS compiler stops us from using 'null' or 'undefined' values
+let speed: number | null = null;
+let ride = {
+  // Falsy values (undefined, null, '', false, 0)
+  // Nullish Coaelscing Operator......the value can be (none or undefined)
 
-function greet(name: string | null | undefined) {
-  console.log(name?.toUpperCase());
-}
-
-greet(undefined);
+  speed: speed ?? 30, // if speed is not none or undefined use that value otherwise use 30 as default value
+};
