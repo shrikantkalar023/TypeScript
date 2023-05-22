@@ -1,9 +1,8 @@
-// Type Assertions: we know more about the type of obj
+// Unknown type......better than any type. forces us to check type on our own.
 
-// 2 syntax
-// let phone = document.getElementById('phone') as HTMLInputElement
-let phone = <HTMLInputElement>document.getElementById("phone");
-
-// HTMLElement -> HTMLInputElement
-
-phone.value;
+function render(document: unknown) {
+  // Narrowing
+  if (document instanceof WordDocument) {
+  }
+  document.move();
+}
