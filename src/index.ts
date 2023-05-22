@@ -1,8 +1,8 @@
-// Unknown type......better than any type. forces us to check type on our own.
+// never type.. to identify unreachable code
 
-function render(document: unknown) {
-  // Narrowing
-  if (document instanceof WordDocument) {
-  }
-  document.move();
+function processEvents(): never {
+  while (true) {}
 }
+
+processEvents();
+console.log("hello");
