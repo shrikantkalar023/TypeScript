@@ -1,7 +1,17 @@
 "use strict";
-var _a, _b;
-function getCustomer(id) {
-    return id === 0 ? null : { birthday: new Date() };
+class Account {
+    constructor(id, owner, balance) {
+        this.id = id;
+        this.owner = owner;
+        this.balance = balance;
+    }
+    deposit(amount) {
+        if (amount <= 0)
+            throw new Error("Invalid amt or Cant deposit");
+        this.balance += amount;
+    }
 }
-console.log((_b = (_a = getCustomer(1)) === null || _a === void 0 ? void 0 : _a.birthday) === null || _b === void 0 ? void 0 : _b.getFullYear());
+const account = new Account(1, "Me", 0);
+account.deposit(100);
+console.log(account instanceof Account);
 //# sourceMappingURL=index.js.map
