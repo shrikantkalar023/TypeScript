@@ -1,20 +1,30 @@
+// Access modifiers: public, private, protected
+
 class Account {
-  id: number;
+  readonly id: number;
   owner: string;
-  balance: number;
+  private _balance: number;
+  nickname?: string;
 
   constructor(id: number, owner: string, balance: number) {
     this.id = id;
     this.owner = owner;
-    this.balance = balance;
+    this._balance = balance;
   }
 
   deposit(amount: number) {
     if (amount <= 0) throw new Error("Invalid amt or Cant deposit");
-    this.balance += amount;
+    // Record a transaction
+    this._balance += amount;
   }
+
+  getBalance() {
+    return this._balance;
+  }
+
+  private calcTax() {}
 }
 
 const account = new Account(1, "Me", 0);
 account.deposit(100);
-console.log(account instanceof Account);
+console.log(account.getBalance());
