@@ -15,13 +15,16 @@ class Account {
     this._balance += amount;
   }
 
-  getBalance() {
+  get balance(): number {
     return this._balance;
   }
 
-  private calcTax() {}
+  set balance(value: number) {
+    if (value < 0) throw new Error("Invalid value");
+    this._balance = value;
+  }
 }
 
 const account = new Account(1, "Me", 0);
 account.deposit(100);
-console.log(account.getBalance());
+console.log(account.balance);
