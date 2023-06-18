@@ -1,30 +1,11 @@
-// Access modifiers: public, private, protected
+// To dynamically assign properties to an object we use 'Index Signatures'.
 
-class Account {
-  nickname?: string;
-
-  constructor(
-    public readonly id: number,
-    public owner: string,
-    private _balance: number
-  ) {}
-
-  deposit(amount: number) {
-    if (amount <= 0) throw new Error("Invalid amt or Cant deposit");
-    // Record a transaction
-    this._balance += amount;
-  }
-
-  get balance(): number {
-    return this._balance;
-  }
-
-  set balance(value: number) {
-    if (value < 0) throw new Error("Invalid value");
-    this._balance = value;
-  }
+class SeatAssignment {
+  // Index Signature property
+  [seatNumber: string]: string;
 }
 
-const account = new Account(1, "Me", 0);
-account.deposit(100);
-console.log(account.balance);
+let seat = new SeatAssignment();
+seat.A1 = "Me";
+seat.A2 = "You";
+console.log(seat);
