@@ -1,11 +1,26 @@
-// To dynamically assign properties to an object we use 'Index Signatures'.
+// Static property belongs to CLASS, so only 1 instance of it in memory.
 
-class SeatAssignment {
-  // Index Signature property
-  [seatNumber: string]: string;
+class Ride {
+  private static _activeRide: number = 0;
+
+  start() {
+    Ride._activeRide++;
+  }
+  stop() {
+    Ride._activeRide--;
+  }
+
+  static get activeRides() {
+    return Ride._activeRide;
+  }
 }
 
-let seat = new SeatAssignment();
-seat.A1 = "Me";
-seat.A2 = "You";
-console.log(seat);
+let ride1 = new Ride();
+let ride2 = new Ride();
+
+console.log(Ride.activeRides);
+
+ride1.start();
+ride2.start();
+ride1.stop();
+console.log(Ride.activeRides);
