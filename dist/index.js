@@ -1,29 +1,24 @@
 "use strict";
-class Person {
-    constructor(firstName, lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+class BankAccount {
+    constructor(id, owner, _balance) {
+        this.id = id;
+        this.owner = owner;
+        this._balance = _balance;
     }
-    get fullName() {
-        return this.firstName + " " + this.lastName;
+    get Balance() {
+        return this._balance;
     }
-    walks() {
-        console.log("walking");
+    set Balance(amount) {
+        this._balance = amount;
     }
-}
-class Student extends Person {
-    constructor(firstName, lastName, studentId) {
-        super(firstName, lastName);
-        this.studentId = studentId;
-    }
-    takeTest() {
-        console.log("taking test");
+    deposit(amount) {
+        if (amount <= 0)
+            throw new Error("Invalid amount");
+        this.Balance += amount;
     }
 }
-const p1 = new Person("Mark", "Rober");
-console.log(p1.fullName);
-const s1 = new Student("Mark", "Rober", "dasf2");
-console.log(s1.fullName, s1.studentId);
-p1.walks();
-s1.takeTest();
+const b1 = new BankAccount(1, "Shri", 20);
+console.log(b1.Balance);
+b1.deposit(40);
+console.log(b1.Balance);
 //# sourceMappingURL=index.js.map

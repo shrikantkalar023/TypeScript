@@ -1,31 +1,29 @@
-// Inheritance
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+class BankAccount {
+  nickName?: string; //optional property, won't be initialized in constructor bsc optional.
 
-  get fullName() {
-    return this.firstName + " " + this.lastName;
+  constructor(
+    readonly id: number, // readonly modifier so that is readonly property
+    public owner: string,
+    private _balance: number
+  ) {}
+
+  //getter
+  get Balance(): number {
+    return this._balance;
   }
 
-  walks() {
-    console.log("walking");
+  //setter
+  set Balance(amount: number) {
+    this._balance = amount;
+  }
+
+  deposit(amount: number) {
+    if (amount <= 0) throw new Error("Invalid amount");
+    this.Balance += amount;
   }
 }
 
-class Student extends Person {
-  constructor(firstName: string, lastName: string, public studentId: string) {
-    super(firstName, lastName);
-  }
-
-  takeTest() {
-    console.log("taking test");
-  }
-}
-
-const p1 = new Person("Mark", "Rober");
-console.log(p1.fullName);
-
-const s1 = new Student("Mark", "Rober", "dasf2");
-console.log(s1.fullName, s1.studentId);
-
-p1.walks();
-s1.takeTest();
+const b1 = new BankAccount(1, "Shri", 20);
+console.log(b1.Balance);
+b1.deposit(40);
+console.log(b1.Balance);
