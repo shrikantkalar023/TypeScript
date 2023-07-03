@@ -1,26 +1,31 @@
-// Static property belongs to CLASS, so only 1 instance of it in memory.
+// Inheritance
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-class Ride {
-  private static _activeRide: number = 0;
-
-  start() {
-    Ride._activeRide++;
-  }
-  stop() {
-    Ride._activeRide--;
+  get fullName() {
+    return this.firstName + " " + this.lastName;
   }
 
-  static get activeRides() {
-    return Ride._activeRide;
+  walks() {
+    console.log("walking");
   }
 }
 
-let ride1 = new Ride();
-let ride2 = new Ride();
+class Student extends Person {
+  constructor(firstName: string, lastName: string, public studentId: string) {
+    super(firstName, lastName);
+  }
 
-console.log(Ride.activeRides);
+  takeTest() {
+    console.log("taking test");
+  }
+}
 
-ride1.start();
-ride2.start();
-ride1.stop();
-console.log(Ride.activeRides);
+const p1 = new Person("Mark", "Rober");
+console.log(p1.fullName);
+
+const s1 = new Student("Mark", "Rober", "dasf2");
+console.log(s1.fullName, s1.studentId);
+
+p1.walks();
+s1.takeTest();
