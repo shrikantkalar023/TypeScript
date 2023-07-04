@@ -1,24 +1,24 @@
 "use strict";
-class BankAccount {
-    constructor(id, owner, _balance) {
-        this.id = id;
-        this.owner = owner;
-        this._balance = _balance;
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-    get Balance() {
-        return this._balance;
+    get fullName() {
+        return this.firstName + " " + this.lastName;
     }
-    set Balance(amount) {
-        this._balance = amount;
-    }
-    deposit(amount) {
-        if (amount <= 0)
-            throw new Error("Invalid amount");
-        this.Balance += amount;
+    walk() {
+        console.log("walking");
     }
 }
-const b1 = new BankAccount(1, "Shri", 20);
-console.log(b1.Balance);
-b1.deposit(40);
-console.log(b1.Balance);
+class Teacher extends Person {
+    takeTest() {
+        console.log("taking test");
+    }
+    get fullName() {
+        return "Prof." + " " + this.firstName + " " + this.lastName;
+    }
+}
+const s1 = new Teacher("Shrikant", "Kalar");
+console.log(s1.fullName);
 //# sourceMappingURL=index.js.map

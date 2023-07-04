@@ -1,29 +1,26 @@
-class BankAccount {
-  nickName?: string; //optional property, won't be initialized in constructor bsc optional.
+// Just need to add override modifier in front of new overridden method.
 
-  constructor(
-    readonly id: number, // readonly modifier so that is readonly property
-    public owner: string,
-    private _balance: number
-  ) {}
+class Person {
+  constructor(public firstName: string, public lastName: string) {}
 
-  //getter
-  get Balance(): number {
-    return this._balance;
+  get fullName() {
+    return this.firstName + " " + this.lastName;
   }
 
-  //setter
-  set Balance(amount: number) {
-    this._balance = amount;
-  }
-
-  deposit(amount: number) {
-    if (amount <= 0) throw new Error("Invalid amount");
-    this.Balance += amount;
+  walk() {
+    console.log("walking");
   }
 }
 
-const b1 = new BankAccount(1, "Shri", 20);
-console.log(b1.Balance);
-b1.deposit(40);
-console.log(b1.Balance);
+class Teacher extends Person {
+  takeTest() {
+    console.log("taking test");
+  }
+
+  override get fullName() {
+    return "Prof." + " " + this.firstName + " " + this.lastName;
+  }
+}
+
+const s1 = new Teacher("Shrikant", "Kalar");
+console.log(s1.fullName);
