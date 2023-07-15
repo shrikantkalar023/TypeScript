@@ -11,14 +11,32 @@ class Person {
         console.log("walking");
     }
 }
-class Teacher extends Person {
-    takeTest() {
-        console.log("taking test");
+class Student extends Person {
+    constructor(id, firstName, lastName) {
+        super(firstName, lastName);
+        this.id = id;
+    }
+    givesTest() {
+        console.log("giving test");
     }
     get fullName() {
-        return "Prof." + " " + this.firstName + " " + this.lastName;
+        return "Student " + super.fullName;
     }
 }
-const s1 = new Teacher("Shrikant", "Kalar");
-console.log(s1.fullName);
+const s1 = new Student(1, "Ashwini", "Kalar");
+class Teacher extends Person {
+    takesTest() {
+        console.log("takes test");
+    }
+    get fullName() {
+        return "Prof. " + super.fullName;
+    }
+}
+const t1 = new Teacher("Shrikant", "Kalar");
+function printNames(people) {
+    for (let person of people) {
+        console.log(person.fullName);
+    }
+}
+printNames([t1, s1, new Person("Sunil", "Kalar")]);
 //# sourceMappingURL=index.js.map
