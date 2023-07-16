@@ -1,52 +1,22 @@
-// Polymorphism is automatically implemented by method overriding.
+// Abstract Classes: not-ready class.
+// Abstract Methods only inside abstract classes.
 
-// Open Closed Principle:- Classes should be open(inherit,extend) for 'extension' & closed for 'modification'.
+abstract class shape {
+  constructor(public color: string) {}
 
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+  abstract render(): void;
+}
 
-  get fullName() {
-    return this.firstName + " " + this.lastName;
+class circle extends shape {
+  constructor(color: string, public radius: number) {
+    super(color);
   }
 
-  walk() {
-    console.log("walking");
+  override render(): void {
+    console.log("rendering circle");
   }
 }
 
-class Student extends Person {
-  constructor(public id: number, firstName: string, lastName: string) {
-    super(firstName, lastName);
-  }
-
-  givesTest() {
-    console.log("giving test");
-  }
-
-  override get fullName() {
-    return "Student " + super.fullName;
-  }
-}
-
-const s1 = new Student(1, "Ashwini", "Kalar");
-
-class Teacher extends Person {
-  takesTest() {
-    console.log("takes test");
-  }
-
-  override get fullName() {
-    return "Prof. " + super.fullName;
-  }
-}
-
-const t1 = new Teacher("Shrikant", "Kalar");
-// console.log(s1.fullName);
-
-function printNames(people: Person[]) {
-  for (let person of people) {
-    console.log(person.fullName);
-  }
-}
-
-printNames([t1, s1, new Person("Sunil", "Kalar")]);
+// const s1 = new shape("red");
+const c1 = new circle("blue", 3);
+c1.render();
