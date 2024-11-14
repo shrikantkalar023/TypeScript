@@ -1,27 +1,5 @@
-// abstract class Calendar {
-//   constructor(public name: string) {}
-
-//   abstract addEvent(): void;
-//   abstract removeEvent(): void;
-// }
-
-interface ICalendar {
-  name: string;
-  addEvent(): void;
-  removeEvent(): void;
+class KeyValuePair<K, V> {
+  constructor(public key: K, public value: V) {}
 }
 
-interface CloudCalendar extends ICalendar {
-  sync(): void;
-}
-
-class GoogleCalendar implements ICalendar {
-  constructor(public name: string) {}
-
-  addEvent(): void {
-    throw new Error("Method not implemented.");
-  }
-  removeEvent(): void {
-    throw new Error("Method not implemented.");
-  }
-}
+const pair = new KeyValuePair("two", "one");

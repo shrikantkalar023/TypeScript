@@ -14,3 +14,4 @@ This is the repo i created and updated while learning TS. **-Shrikant Kalar**
 8. Abstract Classes: 'not-ready' to make objs from classes. Abstract Methods only inside Abstract classes.
 9. Interface to define shape of object. We use 'implements' keyword to implement interface in class.
 10. If we need some logic it is better to use classes, if we need only shape then use interfaces.
+11. Complier infers generic types from the arguments passed.
