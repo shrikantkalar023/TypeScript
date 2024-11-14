@@ -1,22 +1,27 @@
-// Abstract Classes: not-ready class.
-// Abstract Methods only inside abstract classes.
+// abstract class Calendar {
+//   constructor(public name: string) {}
 
-abstract class shape {
-  constructor(public color: string) {}
+//   abstract addEvent(): void;
+//   abstract removeEvent(): void;
+// }
 
-  abstract render(): void;
+interface ICalendar {
+  name: string;
+  addEvent(): void;
+  removeEvent(): void;
 }
 
-class circle extends shape {
-  constructor(color: string, public radius: number) {
-    super(color);
-  }
-
-  override render(): void {
-    console.log("rendering circle");
-  }
+interface CloudCalendar extends ICalendar {
+  sync(): void;
 }
 
-// const s1 = new shape("red");
-const c1 = new circle("blue", 3);
-c1.render();
+class GoogleCalendar implements ICalendar {
+  constructor(public name: string) {}
+
+  addEvent(): void {
+    throw new Error("Method not implemented.");
+  }
+  removeEvent(): void {
+    throw new Error("Method not implemented.");
+  }
+}

@@ -12,3 +12,5 @@ This is the repo i created and updated while learning TS. **-Shrikant Kalar**
 6. Open Closed Principle:- Classes should be open(inherit,extend) for 'extension' & closed for 'modification'.
 7. Private vs Protected Members:- Protected members are inherited.
 8. Abstract Classes: 'not-ready' to make objs from classes. Abstract Methods only inside Abstract classes.
+9. Interface to define shape of object. We use 'implements' keyword to implement interface in class.
+10. If we need some logic it is better to use classes, if we need only shape then use interfaces.
