@@ -1,11 +1,18 @@
-// function wrapInArray<T>(value: T) {
-//   return [value];
-// }
-
-class ArrayUtils {
-  static wrapInArray<T>(value: T) {
-    return [value];
-  }
+interface Result<T> {
+  data: T | null;
+  error: string | null;
 }
 
-const numbers = ArrayUtils.wrapInArray(2);
+function fetchData<T>(url: string): Result<T> {
+  return { data: null, error: null };
+}
+
+interface User {
+  username: string;
+}
+
+interface Product {
+  title: string;
+}
+
+let result = fetchData<Product>("url");
