@@ -1,5 +1,11 @@
-class KeyValuePair<K, V> {
-  constructor(public key: K, public value: V) {}
+// function wrapInArray<T>(value: T) {
+//   return [value];
+// }
+
+class ArrayUtils {
+  static wrapInArray<T>(value: T) {
+    return [value];
+  }
 }
 
-const pair = new KeyValuePair("two", "one");
+const numbers = ArrayUtils.wrapInArray(2);
