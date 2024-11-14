@@ -15,3 +15,4 @@ This is the repo i created and updated while learning TS. **-Shrikant Kalar**
 9. Interface to define shape of object. We use 'implements' keyword to implement interface in class.
 10. If we need some logic it is better to use classes, if we need only shape then use interfaces.
 11. Complier infers generic types from the arguments passed.
+12. Generics can be constrained by using 'extends' keyword to limit the types. We can use types, interfaces, classes as constraints.

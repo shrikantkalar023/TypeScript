@@ -1,18 +1,22 @@
-interface Result<T> {
-  data: T | null;
-  error: string | null;
-}
+// function echo<T extends number | string>(value: T): T {
+//   return value;
+// }
 
-function fetchData<T>(url: string): Result<T> {
-  return { data: null, error: null };
-}
+// interface IPerson {
+//   name: string;
+// }
+// function echo<T extends IPerson>(value: T): T {
+//   return value;
+// }
 
-interface User {
-  username: string;
+class Person {
+  constructor(public name: string) {}
 }
+class Customer extends Person {}
 
-interface Product {
-  title: string;
+function echo<T extends Person>(value: T): T {
+  return value;
 }
-
-let result = fetchData<Product>("url");
+// echo({ name: "asdf" });
+// echo(new Person('asd'));
+echo(new Customer("asdo"));
